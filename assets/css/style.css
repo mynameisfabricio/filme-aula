@@ -1,105 +1,228 @@
-*{
-    margin: 0;
-    padding: 0;
+/* Reset básico e configuração global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Boa prática para controle de tamanho dos elementos */
 }
 
-body{
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    grid-template-areas:
+body {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-areas:
     "header header"
     "sidebar main"
     "footer footer";
+  font-family: Arial, sans-serif;
+  background-color: #141414; /* Fundo escuro */
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-
-/* Cabecalho */
-
-.cabecalho{
-    grid-area: header;
-    background-color: #0d0d0d;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    padding: 1rem;
+/* Cabeçalho */
+.cabecalho {
+  grid-area: header;
+  background-color: #0d0d0d;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #333;
 }
 
-.cabecalho .logo img{
-    max-width: 40%;
+.cabecalho .logo img {
+  max-width: 150px;
+  height: auto;
 }
 
-.cabecalho .menu{
-    display: flex;
-    gap: 1em;
-    flex-direction: row;
+.cabecalho .menu {
+  display: flex;
+  gap: 1.5em;
+  flex-direction: row;
 }
 
-.cabecalho .menu a{
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.3rem;
+.cabecalho .menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-.cabecalho .menu a:hover{
-    color: #ff0000;
-    border: 1px solid #fff;
+.cabecalho .menu a:hover {
+  background-color: #e50914; /* Vermelho temático */
+  color: #fff;
 }
 
-/*barra lateral*/
-
-.sidebar{
-    grid-area: sidebar;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    padding: 1rem;
-    background-color:  #525252;
+/* Sidebar */
+.sidebar {
+  grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1.5rem 1rem;
+  background-color: #181818; /* Cinza escuro */
 }
 
-.sidebar h2{
-    color: #fff;
+.sidebar h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.sidebar ul{
-    list-style: none;
+.sidebar ul {
+  list-style: none;
 }
 
-.sidebar ul li a{
-    text-decoration: none;
-    font-size: 1.5rem;
-    color: #fff;
+.sidebar ul li {
+  margin-bottom: 1rem;
 }
 
-.sidebar ul li a:hover{
-    color: #e50;
+.sidebar ul li a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #aaa;
+  transition: color 0.3s ease;
 }
 
-.conteudo{
-    grid-area: main;
+.sidebar ul li a:hover {
+  color: #e50914;
+}
+
+/* Conteúdo Principal */
+.conteudo {
+  grid-area: main;
+  padding: 2rem;
 }
 
 .template-filmes {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
 }
 
 .template-filmes .filme {
-    max-width: 30%;
+  background-color: #222;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  text-align: center;
+  box-shadow: 0 0 5px #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 270px;
+  min-height: 470px;
+  justify-content: space-between;
+}
+
+.template-filmes .filme:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 .template-filmes .filme img {
-    max-width: 100%;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-bottom: 1px solid #333;
 }
 
-footer{
-    grid-area: footer;
-    background-color: rgb(43, 226, 98);
+.template-filmes .filme h3 {
+  font-size: 1.2rem;
+  padding: 0.8rem 0.5rem 0.5rem;
+  color: #e50914;
+}
+
+.template-filmes .filme p {
+  font-size: 0.9rem;
+  color: #aaa;
+  padding: 0 1rem 1rem;
+  line-height: 1.4;
+  flex-grow: 1;
+}
+
+/* Botão Assistir */
+.btn-assistir {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  margin: 1rem 0 1rem 0;
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  align-self: center;
+  width: fit-content;
+  /* box-shadow removido para tirar efeito */
+}
+
+.btn-assistir:hover {
+  background-color: #ff1e32;
+}
+
+/* Rodapé */
+footer {
+  grid-area: footer;
+  background-color: #0d0d0d;
+  padding: 1.5rem;
+  text-align: center;
+  color: #888;
+  border-top: 1px solid #333;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVO */
+
+/* Para telas menores que 900px, reorganiza layout */
+@media (max-width: 900px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "sidebar"
+      "footer";
+  }
+  .sidebar {
+    order: 2;
+    width: 100%;
+    padding: 1rem;
+  }
+  .conteudo {
+    order: 1;
+  }
+}
+
+/* Para telas menores que 600px, cards empilhados e ajustes */
+@media (max-width: 600px) {
+  .cabecalho,
+  .sidebar,
+  .conteudo,
+  footer {
+    padding: 1rem 0.5rem;
+  }
+  .template-filmes {
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+  }
+  .template-filmes .filme {
+    width: 94vw;
+    max-width: 380px;
+    min-height: auto;
+  }
+  .template-filmes .filme img {
+    height: 220px;
+  }
+  .sidebar {
+    margin-bottom: 2rem;
+  }
 }
