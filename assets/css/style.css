@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+}
+
+
+/* Cabecalho */
+
+.cabecalho{
+    grid-area: header;
+    background-color: #0d0d0d;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.cabecalho .logo img{
+    max-width: 40%;
+}
+
+.cabecalho .menu{
+    display: flex;
+    gap: 1em;
+    flex-direction: row;
+}
+
+.cabecalho .menu a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.cabecalho .menu a:hover{
+    color: #ff0000;
+    border: 1px solid #fff;
+}
+
+/*barra lateral*/
+
+.sidebar{
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1rem;
+    background-color:  #525252;
+}
+
+.sidebar h2{
+    color: #fff;
+}
+
+.sidebar ul{
+    list-style: none;
+}
+
+.sidebar ul li a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.sidebar ul li a:hover{
+    color: #e50;
+}
+
+.conteudo{
+    grid-area: main;
+}
+
+.template-filmes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.template-filmes .filme {
+    max-width: 30%;
+}
+
+.template-filmes .filme img {
+    max-width: 100%;
+}
+
+footer{
+    grid-area: footer;
+    background-color: rgb(43, 226, 98);
+}
