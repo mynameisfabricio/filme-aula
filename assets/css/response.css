@@ -1,0 +1,44 @@
+/* Para telas menores que 600px, cards empilhados e ajustes */
+@media (max-width: 720px) {
+    body{
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "header"
+        "sidebar"
+        "main"
+        "footer";
+    }
+
+    .cabecalho{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .cabecalho .logo{
+        text-align: center;
+    }
+
+    .cabecalho .menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: center ;
+    }
+    
+    .sidebar{
+        flex-direction: row;
+    }
+
+    .sidebar ul{
+        display: flex;
+        gap: 1rem;
+    }
+
+    .tempalte-filme .filme{
+        border: 1px solid rgb(162,2,2);
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+}
